@@ -11,6 +11,7 @@ import { getCurrentUser, signIn } from '../../lib/appwrite'
 
 
 const SignIn = () => {
+  const {setUser, setIsLoggedIn} = useGlobalContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 const [form, setForm] = useState({
   email:'',

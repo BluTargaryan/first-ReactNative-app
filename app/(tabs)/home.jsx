@@ -10,10 +10,13 @@ import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import VideoCard from '../../components/VideoCard'
 
+import {useGlobalContext} from '../../context/GlobalProvider'
+
 const Home = () => {
 const {data:posts, refetch} = useAppwrite(getAllPosts)
 const {data:latestPosts} = useAppwrite(getLatestPosts)
 
+const { user, setUser, setIsLoggedIn} = useGlobalContext();
 
 const [refreshing, setRefreshing] = useState(false)
 
@@ -39,7 +42,7 @@ await refetch()
     Welcome back!
   </Text>
   <Text className="text-xl font-semibold text-white">
-    JSMastery
+    {user?.username }
   </Text>
 </View>
 

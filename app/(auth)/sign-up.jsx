@@ -12,6 +12,7 @@ import {createUser} from '../../lib/appwrite'
 
 
 const SignUp = () => {
+  const {setUser, setIsLoggedIn} = useGlobalContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 const [form, setForm] = useState({
   username:'',
